@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/imageeditor/imageeditor",
-    "pages/combine/combine"
+    "pages/combine/combine",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +11,8 @@
     "navigationBarTitleText": "我要戴口罩",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wx2d97a7e54e6094eb"
+  ]
 }

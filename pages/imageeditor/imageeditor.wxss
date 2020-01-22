@@ -9,10 +9,9 @@
   width:300px;
 }
 button{
-  margin-top:10px;
-
+  margin: 10px 20px 0px 20px;
 }
-.hat{ 
+.hat{
   height: 100px;
   width: 100px;
   position: absolute;
@@ -26,7 +25,7 @@ button{
   height:20px;
 }
 .scrollView{
-   width: 100%; 
+   width: 100%;
    position: absolute;
    bottom: 5px;
    white-space: nowrap;

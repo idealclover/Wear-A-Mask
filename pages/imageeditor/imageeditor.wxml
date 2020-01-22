@@ -1,9 +1,9 @@
 
 <!--index.wxml-->
 <view  wx:if="{{!combine}}">
-    <view class="container" 
+    <view class="container"
           id="container"
-          bind:touchstart="touchStart" 
+          bind:touchstart="touchStart"
           bind:touchend="touchEnd"
           bind:touchmove="touchMove">
     <image class="bg" src="{{bgPic}}"></image>
@@ -15,15 +15,15 @@
     style="top:{{hatCenterY-hatSize/2-2+'px'}};left:{{hatCenterX-hatSize/2-2+'px'}};transform:rotate({{rotate+'deg'}}) scale({{scale}})"
     ></image>
     </view>
-    
-  <button bind:tap="combinePic">确定</button>
+
+  <button bind:tap="combinePic" class="weui-btn" type="primary">确定</button>
    <scroll-view class="scrollView" scroll-x="true" >
-    <image class="imgList" 
-        wx:for="...imgList" wx:key="{{index+1}}" 
+    <image class="imgList"
+        wx:for="...imgList" wx:key="{{index+1}}"
         src="../../image/{{index+1}}.png"
         data-hat-id="{{index+1}}"
         bind:tap="chooseImg"></image>
-  </scroll-view> 
+  </scroll-view>
 </view>
 
 

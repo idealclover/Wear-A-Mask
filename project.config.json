@@ -1,7 +1,9 @@
 {
 	"description": "项目配置文件",
 	"packOptions": {
-		"ignore": []
+		"ignore": [
+			"README.md"
+		]
 	},
 	"setting": {
 		"urlCheck": true,
@@ -31,13 +33,28 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/share/share",
+					"pathName": "pages/share/share",
+					"scene": null
+				}
+			]
 		}
 	}
 }

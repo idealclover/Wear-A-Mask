@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import './libs/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+
 .container {
   height: 100%;
   display: flex;
@@ -6,4 +8,8 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-} 
+}
+
+.footer {
+  margin-top: 10px;
+}

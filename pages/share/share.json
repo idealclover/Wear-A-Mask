@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mp-msg": "/../../libs/weui-miniprogram/msg/msg"
+  }
+}

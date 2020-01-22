@@ -5,8 +5,15 @@
   <view class="emptyBg" wx:else></view>
 </view>
 <view class="btnContainer">
-  <button data-way="avatar" bind:tap="getAvatar">使用头像</button>
-  <button data-way="camera" bind:tap="chooseImage">使用相机</button>
-  <button data-way="album" bind:tap="chooseImage">相册选择</button>
-  <button bind:tap="nextPage" disabled="{{!picChoosed}}">下一步</button>
+  <button class="weui-btn" type="default" data-way="avatar" bind:tap="getAvatar">使用头像</button>
+  <button class="weui-btn" type="default" data-way="camera" bind:tap="chooseImage">使用相机</button>
+  <button class="weui-btn" type="default" data-way="album" bind:tap="chooseImage">相册选择</button>
+  <button class="weui-btn" type="primary" bind:tap="nextPage" disabled="{{!picChoosed}}">下一步</button>
+</view>
+<view class="footer">
+  <view class="weui-footer">
+    <view class="weui-footer__text">Copyright © 2018-2020
+      <navigator class="weui-msg__link" target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>idealclover</navigator>
+    </view>
+  </view>
 </view>
