@@ -5,7 +5,7 @@
   <view class="emptyBg" wx:else></view>
 </view>
 <view class="btnContainer">
-  <button class="weui-btn" type="default" data-way="avatar" bind:tap="getAvatar">使用头像</button>
+  <button class="weui-btn" type="default" data-way="avatar" bind:tap="getAvatar" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">使用头像</button>
   <button class="weui-btn" type="default" data-way="camera" bind:tap="chooseImage">使用相机</button>
   <button class="weui-btn" type="default" data-way="album" bind:tap="chooseImage">相册选择</button>
   <button class="weui-btn" type="primary" bind:tap="nextPage" disabled="{{!picChoosed}}">下一步</button>

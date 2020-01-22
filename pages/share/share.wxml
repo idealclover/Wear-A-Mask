@@ -12,18 +12,45 @@
     </view>
     <view class="weui-msg__opr-area">
       <view class="weui-btn-area">
-        <button class="weui-btn" type="primary">分享给朋友</button>
+        <button class="weui-btn" type="primary" open-type="share">将小程序分享给朋友</button>
+        <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+            <button class="weui-btn">点击生成海报</button>
+        </poster>
       </view>
     </view>
     <view class="weui-msg__tips-area">
-      <view class="weui-msg__tips">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现
-        <navigator url="" class="weui-msg__link">文字链接</navigator>
+      <view class="weui-msg__tips">
+        安全小贴士：
+      </view>
+      <view class="weui-msg__tips">
+        出门戴口罩，勤洗手
+      </view>
+      <view class="weui-msg__tips">
+        咳嗽或打喷嚏时捂住口鼻
+      </view>
+      <view class="weui-msg__tips">
+        将肉、蛋彻底做熟
+      </view>
+      <view class="weui-msg__tips">
+        避免与呼吸道感染患者密切接触
+      </view>
+      <view class="weui-msg__tips">
+        避免近距离接触野生动物或活牲畜
+      </view>
+      <view class="weui-msg__tips">
+        不要随地吐痰
+      </view>
+      <view class="weui-msg__tips">
+        不要去人多的地方凑热闹
+      </view>
+      <view class="weui-msg__tips">
+        新年快乐！
       </view>
     </view>
     <view class="weui-msg__extra-area">
       <view class="weui-footer">
-        <view class="weui-footer__text">Copyright © 2018-2020 
-                <navigator class="weui-msg__link" target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>idealclover</navigator>
+        <view class="weui-footer__text">Copyright © 2018-2020
+          <navigator class="weui-msg__link" target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>idealclover</navigator>
         </view>
       </view>
     </view>

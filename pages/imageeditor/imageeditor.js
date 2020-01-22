@@ -127,5 +127,19 @@ Page({
     wx.navigateTo({
       url: "../combine/combine"
     });
+  },
+    /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+    let successPic = app.globalData.successPic
+      ? app.globalData.successPic
+      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+    return {
+      title: "一起来为头像带上口罩吧！",
+      imageUrl: successPic,
+      path: "/pages/index/index",
+      success: function(res) {}
+    };
   }
 });

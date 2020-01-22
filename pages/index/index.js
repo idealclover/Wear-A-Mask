@@ -1,5 +1,6 @@
 // pages/index/index.js
 const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -18,6 +19,20 @@ Page({
       this.setData({
         picChoosed: false
       });
+    }
+  },
+  bindGetUserInfo: function(e) {
+    console.log(e.detail.userInfo)
+    if (e.detail.userInfo){
+      //用户按了允许授权按钮
+      app.globalData.userInfo = e.detail.userInfo;
+      this.setData({
+        userInfo: e.detail.userInfo,
+        bgPic: e.detail.userInfo.avatarUrl
+      });
+      this.assignPicChoosed();
+    } else {
+      //用户按了拒绝按钮
     }
   },
   getAvatar() {
@@ -46,9 +61,9 @@ Page({
       sizeType: ["original", "compressed"],
       sourceType: [from.target.dataset.way],
       success: res => {
-        var tempFilePaths = res.tempFilePaths;
+        let tempFilePaths = res.tempFilePaths;
         this.setData({
-          bgPic: res.tempFilePaths[0]
+          bgPic: tempFilePaths[0]
         });
         this.assignPicChoosed();
       },
@@ -65,5 +80,19 @@ Page({
     wx.navigateTo({
       url: "../imageeditor/imageeditor"
     });
+  },
+    /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+    let successPic = app.globalData.successPic
+      ? app.globalData.successPic
+      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+    return {
+      title: "一起来为头像带上口罩吧！",
+      imageUrl: successPic,
+      path: "/pages/index/index",
+      success: function(res) {}
+    };
   }
 });
