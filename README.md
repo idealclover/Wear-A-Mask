@@ -12,7 +12,7 @@
 
 ## 小程序截图
 
-![](https://image.idealclover.cn/projects/Wear-A-Mask/demo.jpg)
+![](https://image.idealclover.cn/projects/Wear-A-Mask/demo.png)
 
 ## 小程序技术实现（摘自 [jasscia/ChristmasHat](https://github.com/jasscia/ChristmasHat)）
 
