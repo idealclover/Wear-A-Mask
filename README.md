@@ -6,6 +6,14 @@
 
 基于 [jasscia/ChristmasHat](https://github.com/jasscia/ChristmasHat)，在其上进行了魔改。
 
+扫码预览
+
+![](https://image.idealclover.cn/projects/Wear-A-Mask/qrcode.jpg)
+
+## 小程序截图
+
+![](https://image.idealclover.cn/projects/Wear-A-Mask/demo.jpg)
+
 ## 小程序技术实现（摘自 [jasscia/ChristmasHat](https://github.com/jasscia/ChristmasHat)）
 
 ### 程序结构
@@ -30,24 +38,8 @@
   - 首先绘制底图（根据屏幕大小、图片大小计算左上角和右下角坐标）
   - 绘制帽子（计算最终帽子的大小及中心位置 旋转角度,移动画布原点到帽子的中心位置，旋转画布 并绘制帽子）
 
-## 过程展示
+## 项目依赖
 
-##### step 1 旋转底图
-
-![step1](https://github.com/jasscia/ChristmasHat/raw/master/shortcut/step1.jpg)
-
-##### step 2 确定底图后 进入下一步
-
-![step2](https://github.com/jasscia/ChristmasHat/raw/master/shortcut/step2.jpg)
-
-##### step 3 选择帽子 调整帽子 确定进入下一步
-
-![step3](https://github.com/jasscia/ChristmasHat/raw/master/shortcut/step3.jpg)
-
-##### step 4 canvas 绘制合成图 并保存至相册
-
-![step4](https://github.com/jasscia/ChristmasHat/raw/master/shortcut/step4.jpg)
-
-##### 最终成果
-
-![成果图](https://github.com/jasscia/ChristmasHat/raw/master/shortcut/avatarWithHat.png)
+* [jasscia/ChristmasHat](https://github.com/jasscia/ChristmasHat)
+* [Tencent/weui-wxss](https://github.com/Tencent/weui-wxss)
+* [jasondu/wxa-plugin-canvas](https://github.com/jasondu/wxa-plugin-canvas)

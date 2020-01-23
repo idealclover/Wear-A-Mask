@@ -110,7 +110,7 @@ Page({
         }
       ]
     };
-    this.setData({posterConfig: posterConfig});
+    this.setData({ posterConfig: posterConfig });
   },
 
   onPosterSuccess(e) {
@@ -128,6 +128,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
+    let successPic = app.globalData.successPic
+      ? app.globalData.successPic
+      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
     return {
       title: "一起来为头像带上口罩吧！",
       imageUrl: successPic,
