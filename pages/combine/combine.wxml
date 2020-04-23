@@ -1,6 +1,10 @@
-<view >
-  <canvas  class="myCanvas" canvas-id="myCanvas" style="height:300px;;width:100%;"/>
-  <button class="weui-btn" type="primary" bind:tap="savePic">保存至相册</button>
+<view>
+  <view class="flex padding justify-center">
+    <canvas class="myCanvas" canvas-id="myCanvas" style="height:300px;width:300;" />
+  </view>
+  <view class="flex">
+    <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="savePic">保存至相册</button>
+  </view>
 </view>
 <view class="footer">
   <view class="weui-footer">

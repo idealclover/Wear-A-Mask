@@ -25,11 +25,10 @@ Page({
     let hat_center_y = app.globalData.hat_center_y;
     let currentHatId = app.globalData.currentHatId;
     const pc = wx.createCanvasContext("myCanvas");
-    const windowWidth = wx.getSystemInfoSync().windowWidth;
     const hat_size = 100 * scale;
 
-    pc.clearRect(0, 0, windowWidth, 300);
-    pc.drawImage(this.bgPic, windowWidth / 2 - 150, 0, 300, 300);
+    pc.clearRect(0, 0, 300, 300);
+    pc.drawImage(this.bgPic, 0, 0, 300, 300);
     pc.translate(hat_center_x, hat_center_y);
     pc.rotate((rotate * Math.PI) / 180);
     pc.drawImage(
@@ -42,9 +41,8 @@ Page({
     pc.draw();
   },
   savePic() {
-    const windowWidth = wx.getSystemInfoSync().windowWidth;
     wx.canvasToTempFilePath({
-      x: windowWidth / 2 - 150,
+      x: 0,
       y: 0,
       height: 300,
       width: 300,

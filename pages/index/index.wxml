@@ -1,14 +1,28 @@
 <!--pages/index/index.wxml-->
 
-<view class="container">
-  <image class="bgPic" wx:if="{{bgPic}}" src="{{bgPic}}"></image>
-  <view class="emptyBg" wx:else></view>
+<view class="flex padding justify-center">
+  <view class="solids" wx:if="{{bgPic}}" id="container" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
+    <image class="bgPic " src="{{bgPic}}"></image>
+    <!-- <icon type="cancel" class="cancel" id="cancel" style="top:{{cancelCenterY-10+'px'}};left:{{cancelCenterX-10+'px'}}"></icon> -->
+    <icon type="waiting" class="handle" id="handle" color="green" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></icon>
+    <!-- <text class="cuIcon-roundclose cancel" id="cancel" color="green" style="top:{{cancelCenterY-10+'px'}};left:{{cancelCenterX-10+'px'}}"></text> -->
+    <!-- <text class="cuIcon-refresh handle" id="handle" color="green" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></text> -->
+    <image class="hat" id='hat' src="../../image/{{currentHatId}}.png" style="top:{{hatCenterY-hatSize/2-2+'px'}};left:{{hatCenterX-hatSize/2-2+'px'}};transform:rotate({{rotate+'deg'}}) scale({{scale}})"></image>
+  </view>
+  <view class="emptyBg solids flex padding justify-center align-center" wx:else>
+    <view>
+      <view class="flex">点击授权登录加载您的头像</view>
+      <button class="flex padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" data-way="avatar" bind:tap="getAvatar" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">使用头像</button>
+    </view>
+  </view>
 </view>
-<view class="btnContainer">
-  <button class="weui-btn" type="default" data-way="avatar" bind:tap="getAvatar" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">使用头像</button>
-  <button class="weui-btn" type="default" data-way="camera" bind:tap="chooseImage">使用相机</button>
-  <button class="weui-btn" type="default" data-way="album" bind:tap="chooseImage">相册选择</button>
-  <button class="weui-btn" type="primary" bind:tap="nextPage" disabled="{{!picChoosed}}">下一步</button>
+
+<scroll-view class="scrollView" scroll-x="true">
+  <image class="imgList" wx:for="...imgList" wx:key="index" src="../../image/{{index+1}}.png" data-hat-id="{{index+1}}" bind:tap="chooseImg"></image>
+</scroll-view>
+<view class="flex">
+  <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg" bind:tap="chooseImage">选择图片</button>
+  <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="combinePic" disabled="{{!picChoosed}}">生成头像</button>
 </view>
 <view class="footer">
   <view class="weui-footer">
