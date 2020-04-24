@@ -7,7 +7,7 @@
 }
 
 .bgPic, .emptyBg {
-  background-color: #EEE;
+  background-color: #eee;
   height: 300px;
   width: 300px;
 }
@@ -20,11 +20,16 @@
   top: 100px;
 }
 
-.handle,.cancel{
+.handle, .cancel {
   position: absolute;
   z-index: 1;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVQ4jb2TYQ3DIBCFKwEJSEACEpBQCZVQB0ioBCRUQiUgAQnffuyRsK2QrWlGcmnC8d67e3edprsPYIAFOIAMFCAB8xCkrxcwAk5kRvercu6MIDfgMBBywFYF20SpJFf7LopdKlWpjT65+qxAI0AEgmIF0i8Vba0X8uf/BFFAr71IylmFGRF4LU8bszw6eJ7ydUVv5E4jp1f656a9VpY1mdx7UNS/1UitVKP2JOjtuQfNz7RL7ZAHy9C4q+cByTtkeikNbOoAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  background-color: #39b94a;
 }
 
 .scrollView {

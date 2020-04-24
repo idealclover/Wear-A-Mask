@@ -6,10 +6,14 @@
     <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="savePic">保存至相册</button>
   </view>
 </view>
-<view class="footer">
-  <view class="weui-footer">
-    <view class="weui-footer__text">Copyright © 2018-2020
-      <navigator class="weui-msg__link" target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>idealclover</navigator>
+<view class="flex justify-center">
+  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>
+    <view class="text-blue padding-sm">
+      <view class="cuIcon-creative">作者博客</view>
     </view>
+  </navigator>
+  <view class="padding-sm"> | </view>
+  <view class="text-blue padding-sm">
+    <view class="cuIcon-forward">分享给朋友</view>
   </view>
 </view>

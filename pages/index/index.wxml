@@ -4,9 +4,8 @@
   <view class="solids" wx:if="{{bgPic}}" id="container" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
     <image class="bgPic " src="{{bgPic}}"></image>
     <!-- <icon type="cancel" class="cancel" id="cancel" style="top:{{cancelCenterY-10+'px'}};left:{{cancelCenterX-10+'px'}}"></icon> -->
-    <icon type="waiting" class="handle" id="handle" color="green" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></icon>
-    <!-- <text class="cuIcon-roundclose cancel" id="cancel" color="green" style="top:{{cancelCenterY-10+'px'}};left:{{cancelCenterX-10+'px'}}"></text> -->
-    <!-- <text class="cuIcon-refresh handle" id="handle" color="green" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></text> -->
+    <!-- <icon type="waiting" class="handle" id="handle" color="green" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></icon> -->
+    <view class="handle" id="handle" style="top:{{handleCenterY-10+'px'}};left:{{handleCenterX-10+'px'}}"></view>
     <image class="hat" id='hat' src="../../image/{{currentHatId}}.png" style="top:{{hatCenterY-hatSize/2-2+'px'}};left:{{hatCenterX-hatSize/2-2+'px'}};transform:rotate({{rotate+'deg'}}) scale({{scale}})"></image>
   </view>
   <view class="emptyBg solids flex padding justify-center align-center" wx:else>
@@ -24,10 +23,14 @@
   <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg" bind:tap="chooseImage">选择图片</button>
   <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="combinePic" disabled="{{!picChoosed}}">生成头像</button>
 </view>
-<view class="footer">
-  <view class="weui-footer">
-    <view class="weui-footer__text">Copyright © 2018-2020
-      <navigator class="weui-msg__link" target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>idealclover</navigator>
+<view class="flex justify-center">
+  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>
+    <view class="text-blue padding-sm">
+      <view class="cuIcon-creative">作者博客</view>
     </view>
+  </navigator>
+  <view class="padding-sm"> | </view>
+  <view class="text-blue padding-sm">
+    <view class="cuIcon-forward">分享给朋友</view>
   </view>
 </view>

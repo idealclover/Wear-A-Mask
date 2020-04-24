@@ -1,20 +1,34 @@
 <!--pages/share.wxml-->
 <view>
-  <!-- <view class="weui-msg"> -->
-  <!-- <view class="weui-msg__icon-area">
-      <icon type="success" size="64"></icon>
-    </view>
-    <view class="weui-msg__text-area">
-      <view class="weui-msg__title">操作成功</view>
-      <view class="weui-msg__desc">生成的头像已经保存到相册 www
-      </view>
-    </view> -->
+  <view class="flex justify-center padding-top-lg text-xsl">
+    <text class=" cuIcon-roundcheckfill text-green"></text>
+  </view>
+  <view class="flex justify-center padding-top-lg text-xxl">
+    <text class="text-bold">保存成功</text>
+  </view>
+  <view class="flex justify-center padding-lg text-xxl">
+    <text>生成的头像已经保存到相册 OωO</text>
+  </view>
   <view class="flex">
     <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" open-type="share">将小程序分享给朋友</button>
   </view>
   <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
     <view class="flex">
-      <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg">点击生成分享海报</button>
+      <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">生成分享海报</button>
     </view>
   </poster>
+  <!-- <view class="flex">
+    <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">看段广告支持我</button>
+  </view> -->
+</view>
+<view class="flex justify-center">
+  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>
+    <view class="text-blue padding-sm">
+      <view class="cuIcon-creative">作者博客</view>
+    </view>
+  </navigator>
+  <view class="padding-sm"> | </view>
+  <view class="text-blue padding-sm">
+    <view class="cuIcon-forward">分享给朋友</view>
+  </view>
 </view>
