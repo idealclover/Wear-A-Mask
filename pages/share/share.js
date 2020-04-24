@@ -114,6 +114,7 @@ Page({
   },
 
   onPosterSuccess(e) {
+    console.log('qwq')
     const { detail } = e;
     wx.previewImage({
       current: detail,

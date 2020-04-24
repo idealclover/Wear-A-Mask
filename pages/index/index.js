@@ -88,14 +88,10 @@ Page({
       sizeType: ["original", "compressed"],
       sourceType: ['album', 'camera'],
       success: res => {
-        let tempFilePaths = res.tempFilePaths;
-        this.setData({
-          bgPic: tempFilePaths[0]
-        });
-        this.assignPicChoosed();
-      },
-      fail: res => {
-        this.assignPicChoosed();
+        let src = res.tempFilePaths;
+        wx.navigateTo({
+          url: `../upload/upload?src=${src}`
+        })
       },
       complete: res => {
         this.assignPicChoosed();

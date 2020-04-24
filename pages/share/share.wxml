@@ -21,14 +21,24 @@
     <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">看段广告支持我</button>
   </view> -->
 </view>
-<view class="flex justify-center">
-  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='page/index/index'>
-    <view class="text-blue padding-sm">
-      <view class="cuIcon-creative">作者博客</view>
+<view class="flex footer justify-center align-center">
+  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
+    <view class="footer-item text-blue padding-lr-sm">
+      <view class="cuIcon-creative">作者博客<text decode="{{true}}">&emsp;&emsp;</text></view>
     </view>
   </navigator>
-  <view class="padding-sm"> | </view>
-  <view class="text-blue padding-sm">
-    <view class="cuIcon-forward">分享给朋友</view>
+  <view class="footer-item padding-lr-sm"> | </view>
+  <button class="cu-btn footer-item text-blue" open-type="share">
+      <view class="cuIcon-forward">分享给朋友</view>
+  </button>
+</view>
+<view class="flex justify-center align-center">
+  <view>
+    Copyright © 2018-2020<text decode="{{true}}">&ensp;</text>
   </view>
+  <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
+    <view class="text-blue">
+      idealclover
+    </view>
+  </navigator>
 </view>
