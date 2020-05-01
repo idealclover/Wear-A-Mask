@@ -6,6 +6,7 @@
     <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="savePic">保存至相册</button>
   </view>
 </view>
+<ad unit-id="adunit-854715c8d93ec0e2"></ad>
 <view class="flex footer justify-center align-center">
   <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
     <view class="footer-item text-blue padding-lr-sm">

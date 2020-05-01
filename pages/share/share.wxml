@@ -10,31 +10,47 @@
     <text>生成的头像已经保存到相册 OωO</text>
   </view>
   <view class="flex">
-    <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" open-type="share">将小程序分享给朋友</button>
+    <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="actionSheetTap">分享给朋友！</button>
   </view>
-  <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
-    <view class="flex">
-      <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">生成分享海报</button>
-    </view>
-  </poster>
-  <!-- <view class="flex">
-    <button class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">看段广告支持我</button>
-  </view> -->
+  <view class="flex">
+    <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="showAd">看段广告支持我</button>
+  </view>
+  <view class="flex">
+    <navigator target="miniProgram" open-type="exit" class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">关闭小程序</navigator>
+  </view>
 </view>
+<ad unit-id="adunit-854715c8d93ec0e2"></ad>
 <view class="flex footer justify-center align-center">
   <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
     <view class="footer-item text-blue padding-lr-sm">
-      <view class="cuIcon-creative">作者博客<text decode="{{true}}">&emsp;&emsp;</text></view>
+      <view class="cuIcon-creative">作者博客
+        <text decode="{{true}}">&emsp;&emsp;</text>
+      </view>
     </view>
   </navigator>
   <view class="footer-item padding-lr-sm"> | </view>
   <button class="cu-btn footer-item text-blue" open-type="share">
-      <view class="cuIcon-forward">分享给朋友</view>
+    <view class="cuIcon-forward">分享给朋友</view>
   </button>
 </view>
+<!--默认action-sheet为隐藏，由button触发-->
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
+  <action-sheet-item>
+    <button open-type="share">分享给好友</button>
+  </action-sheet-item>
+  <action-sheet-item>
+    <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+      <button>生成分享海报</button>
+    </poster>
+  </action-sheet-item>
+  <!--自动隐藏action-sheet-->
+  <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+
 <view class="flex justify-center align-center">
   <view>
-    Copyright © 2018-2020<text decode="{{true}}">&ensp;</text>
+    Copyright © 2018-2020
+    <text decode="{{true}}">&ensp;</text>
   </view>
   <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
     <view class="text-blue">

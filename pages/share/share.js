@@ -1,18 +1,39 @@
 // pages/share.js
 const app = getApp();
 
+// 在页面中定义激励视频广告
+let videoAd = null
+
 Page({
   /**
    * 页面的初始数据
    */
-  // data: {
-  //   posterConfig: posterConfig
-  // },
-
+  data: {
+    actionSheetHidden: true,
+  },
+  actionSheetTap: function() {
+    this.setData({
+      actionSheetHidden: !this.data.actionSheetHidden
+    })
+  },
+  listenerActionSheet: function() {
+    this.setData({
+      actionSheetHidden: !this.data.actionSheetHidden
+    })
+  },
   onLoad: function() {
-    let successPic = app.globalData.successPic
-      ? app.globalData.successPic
-      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-8b23222f8d4d1366'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {})
+      videoAd.onClose((res) => {})
+    }
+    let successPic = app.globalData.successPic ?
+      app.globalData.successPic :
+      "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
     console.log(successPic);
     const posterConfig = {
       width: 750,
@@ -20,8 +41,7 @@ Page({
       backgroundColor: "#fff",
       debug: false,
       pixelRatio: 1,
-      blocks: [
-        {
+      blocks: [{
           width: 690,
           height: 690,
           x: 30,
@@ -110,12 +130,29 @@ Page({
         }
       ]
     };
-    this.setData({ posterConfig: posterConfig });
+    this.setData({
+      posterConfig: posterConfig
+    });
   },
 
+  showAd() {
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+          })
+      })
+    }
+  },
   onPosterSuccess(e) {
     console.log('qwq')
-    const { detail } = e;
+    const {
+      detail
+    } = e;
     wx.previewImage({
       current: detail,
       urls: [detail]
@@ -129,9 +166,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    let successPic = app.globalData.successPic
-      ? app.globalData.successPic
-      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+    let successPic = app.globalData.successPic ?
+      app.globalData.successPic :
+      "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
     return {
       title: "一起来为头像带上口罩吧！",
       imageUrl: successPic,

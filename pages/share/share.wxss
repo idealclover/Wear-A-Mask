@@ -1,1 +1,7 @@
 /* pages/share.wxss */
+button::after{
+  border:0;
+}
+button{
+  background-color: #fff;
+}
