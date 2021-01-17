@@ -12,14 +12,16 @@
   <view class="flex">
     <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="actionSheetTap">分享给朋友！</button>
   </view>
-  <view class="flex">
+  <!-- <view class="flex">
     <button class="flex-sub padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" bind:tap="showAd">看段广告支持我</button>
-  </view>
+  </view> -->
   <view class="flex">
     <navigator target="miniProgram" open-type="exit" class="flex-sub padding-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg">关闭小程序</navigator>
   </view>
 </view>
-<ad unit-id="adunit-854715c8d93ec0e2"></ad>
+<ad unit-id="adunit-e48a91b1e192bb17"></ad>
+<!-- 格子广告的转化率也太差了... -->
+<!-- <ad unit-id="adunit-16db43cefce392a0" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
 <view class="flex footer justify-center align-center">
   <navigator target="miniProgram" open-type='navigate' app-id='wx2d97a7e54e6094eb' path='pages/index/index'>
     <view class="footer-item text-blue padding-lr-sm">

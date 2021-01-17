@@ -41,27 +41,83 @@ Page({
   },
   getCropperImage() {
     this.cropper.getCropperImage(function(path, err) {
+      wx.showLoading({
+        title: '图片处理中',
+      })
       if (err) {
         wx.showModal({
           title: '错误提示',
           content: err.message
         })
       } else {
-        let pages = getCurrentPages();
-        let prevPage = pages[pages.length - 2];
-        prevPage.setData({
-          bgPic: path,
-          picChoosed: true
+        wx.cloud.init()
+        wx.getFileSystemManager().readFile({
+          filePath: path,
+          success: pic => {
+            // console.log(res);
+            console.log('压缩前：' + pic.data.byteLength)
+          }
         })
-        wx.navigateBack({
-          delta: 1
+        wx.cloud.uploadFile({
+          cloudPath: new Date().getTime() + path.match(/\.[^.]+?$/)[0],
+          filePath: path,
+          success: res => {
+            console.log('上传文件成功：', res)
+            wx.cloud.callFunction({
+              name: 'imgSecCheck',
+              data: {
+                contentType: 'image/png',
+                fileID: res.fileID
+              }
+            }).then(result => {
+              console.log(result);
+              let {
+                errCode
+              } = result.result.data;
+              switch (errCode) {
+                case 87014:
+                  wx.showToast({
+                    title: '违法违规内容',
+                    icon: 'none',
+                    duration: 2000
+                  })
+                  break;
+                case 0:
+                  //  获取裁剪图片资源后，给data添加src属性及其值
+                  let pages = getCurrentPages();
+                  let prevPage = pages[pages.length - 2];
+                  prevPage.setData({
+                    bgPic: path,
+                    picChoosed: true
+                  })
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                  break;
+                default:
+                  wx.showToast({
+                    title: '文件识别失败',
+                    icon: 'none',
+                    duration: 2000
+                  })
+                  break;
+              }
+            })
+          },
+          fail: err => {
+            console.log(err)
+            wx.showToast({
+              title: '文件识别失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
         })
       }
     })
   },
   uploadTap() {
     const self = this
-
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有

@@ -2,7 +2,8 @@
 const app = getApp();
 
 // 在页面中定义激励视频广告
-let videoAd = null
+// let videoAd = null
+let interstitialAd = null
 
 Page({
   /**
@@ -23,14 +24,25 @@ Page({
   },
   onLoad: function() {
     // 在页面onLoad回调事件中创建激励视频广告实例
-    if (wx.createRewardedVideoAd) {
-      videoAd = wx.createRewardedVideoAd({
-        adUnitId: 'adunit-8b23222f8d4d1366'
-      })
-      videoAd.onLoad(() => {})
-      videoAd.onError((err) => {})
-      videoAd.onClose((res) => {})
+    // if (wx.createRewardedVideoAd) {
+    //   videoAd = wx.createRewardedVideoAd({
+    //     adUnitId: 'adunit-8b23222f8d4d1366'
+    //   })
+    //   videoAd.onLoad(() => {})
+    //   videoAd.onError((err) => {})
+    //   videoAd.onClose((res) => {})
+    // }
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-0bdccf1c6b3263ca' })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose((res) => {})
     }
+    setTimeout(function () {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }, 2000)
     let successPic = app.globalData.successPic ?
       app.globalData.successPic :
       "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
