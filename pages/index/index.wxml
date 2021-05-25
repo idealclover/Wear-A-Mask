@@ -16,7 +16,7 @@
 </view>
 
 <scroll-view class="scrollView" scroll-x="true">
-  <image class="imgList" wx:for="...imgList" wx:key="index" src="../../image/{{index+1}}.png" data-hat-id="{{index+1}}" bind:tap="chooseImg"></image>
+  <image class="imgList" wx:for="{{imgList}}" wx:key="index" src="../../image/{{index+1}}.png" data-hat-id="{{index+1}}" bind:tap="chooseImg"></image>
 </scroll-view>
 <view class="flex">
   <button class="flex-sub padding-lr-sm margin-xs radius cu-btn line-grey text-grey margin-tb-sm lg" bind:tap="chooseImage">选择图片</button>
