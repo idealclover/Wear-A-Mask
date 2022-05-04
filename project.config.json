@@ -1,42 +1,52 @@
 {
   "description": "项目配置文件",
   "packOptions": {
-    "ignore": [
-      "README.md"
+    "ignore": [{
+        "type": "file",
+        "value": "README.md"
+      }
     ]
   },
   "setting": {
     "urlCheck": true,
     "es6": true,
+    "enhance": true,
     "postcss": true,
+    "preloadBackgroundData": false,
     "minified": true,
     "newFeature": true,
     "coverView": true,
+    "nodeModules": false,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
+    "uglifyFileName": false,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "useMultiFrameRuntime": true,
-    "bundle": false,
-    "useApiHook": true,
-    "useApiHostProcess": false
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.10.1",
+  "libVersion": "2.19.2",
   "appid": "wx8bab0d7b27d1b69e",
   "projectname": "Wear-A-Mask",
   "cloudfunctionRoot": "functions/",
@@ -65,14 +75,12 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "pages/share/share",
-          "pathName": "pages/share/share",
-          "scene": null
-        }
-      ]
+      "list": [{
+        "id": -1,
+        "name": "pages/share/share",
+        "pathName": "pages/share/share",
+        "scene": null
+      }]
     }
   }
 }

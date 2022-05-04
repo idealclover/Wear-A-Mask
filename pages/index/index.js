@@ -21,7 +21,7 @@ Page({
     rotate: 0
   },
   onReady() {
-    this.getAvatar();
+    // this.getAvatar();
     this.hat_center_x = this.data.hatCenterX;
     this.hat_center_y = this.data.hatCenterY;
     // this.cancel_center_x = this.data.cancelCenterX;
@@ -47,40 +47,18 @@ Page({
       });
     }
   },
-  bindGetUserInfo: function(e) {
-    console.log(e.detail.userInfo)
-    if (e.detail.userInfo){
-      //用户按了允许授权按钮
-      app.globalData.userInfo = e.detail.userInfo;
-      this.setData({
-        userInfo: e.detail.userInfo,
-        bgPic: e.detail.userInfo.avatarUrl
-      });
-      this.assignPicChoosed();
-    } else {
-      //用户按了拒绝按钮
-    }
-  },
   getAvatar() {
-    if (app.globalData.userInfo) {
-      this.setData({
-        bgPic: app.globalData.userInfo.avatarUrl.replace(/132/g, '0')
-      });
-      this.assignPicChoosed();
-    } else {
-      // console.log(res.userInfo.avatarUrl);
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo;
-          this.setData({
-            userInfo: res.userInfo,
-            bgPic: res.userInfo.avatarUrl.replace(/132/g, '0')
-          });
-          this.assignPicChoosed();
-        }
-      });
-    }
+    wx.getUserProfile({
+      desc: '用于获取当前用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        app.globalData.userInfo = res.userInfo;
+        this.setData({
+          userInfo: res.userInfo,
+          bgPic: res.userInfo.avatarUrl.replace(/132/g, '0')
+        });
+        this.assignPicChoosed();
+      }
+    })
   },
   chooseImage(from) {
     wx.chooseImage({
@@ -184,18 +162,18 @@ Page({
       url: "../combine/combine"
     });
   },
-    /**
+  /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-    let successPic = app.globalData.successPic
-      ? app.globalData.successPic
-      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+  onShareAppMessage: function () {
+    let successPic = app.globalData.successPic ?
+      app.globalData.successPic :
+      "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
     return {
       title: "一起来为头像带上口罩吧！",
       imageUrl: successPic,
       path: "/pages/index/index",
-      success: function(res) {}
+      success: function (res) {}
     };
   }
 });

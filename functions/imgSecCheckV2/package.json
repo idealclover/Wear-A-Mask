@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "wx-server-sdk": "latest",
+    "axios": "latest"
+  }
+}

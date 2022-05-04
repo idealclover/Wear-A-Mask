@@ -10,7 +10,7 @@
   <view class="emptyBg solids flex padding justify-center align-center" wx:else>
     <view>
       <view class="flex">点击授权登录加载您的头像</view>
-      <button class="flex padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" data-way="avatar" bind:tap="getAvatar" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">使用头像</button>
+      <button class="flex padding-sm margin-xs radius cu-btn bg-grey margin-tb-sm lg" data-way="avatar" bind:tap="getAvatar">使用头像</button>
     </view>
   </view>
 </view>

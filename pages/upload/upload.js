@@ -40,7 +40,7 @@ Page({
     this.cropper.touchEnd(e)
   },
   getCropperImage() {
-    this.cropper.getCropperImage(function(path, err) {
+    this.cropper.getCropperImage(function (path, err) {
       wx.showLoading({
         title: '图片处理中',
       })
@@ -51,26 +51,26 @@ Page({
         })
       } else {
         wx.cloud.init()
-        wx.getFileSystemManager().readFile({
-          filePath: path,
-          success: pic => {
-            // console.log(res);
-            console.log('压缩前：' + pic.data.byteLength)
-          }
-        })
-        wx.cloud.uploadFile({
-          cloudPath: new Date().getTime() + path.match(/\.[^.]+?$/)[0],
-          filePath: path,
+        wx.compressImage({
+          src: path,
+          quality: 50,
+          fail: function () {
+            wx.showToast({
+              title: '文件识别失败',
+              icon: 'none',
+              duration: 2000
+            })
+          },
           success: res => {
-            console.log('上传文件成功：', res)
             wx.cloud.callFunction({
-              name: 'imgSecCheck',
+              name: 'imgSecCheckV2',
               data: {
-                contentType: 'image/png',
-                fileID: res.fileID
+                file: wx.cloud.CDN({
+                  type: 'filePath',
+                  filePath: res.tempFilePath,
+                })
               }
             }).then(result => {
-              console.log(result);
               let {
                 errCode
               } = result.result.data;
@@ -83,7 +83,7 @@ Page({
                   })
                   break;
                 case 0:
-                  //  获取裁剪图片资源后，给data添加src属性及其值
+                  // 获取裁剪图片资源后，给data添加src属性及其值
                   let pages = getCurrentPages();
                   let prevPage = pages[pages.length - 2];
                   prevPage.setData({
@@ -96,23 +96,15 @@ Page({
                   break;
                 default:
                   wx.showToast({
-                    title: '文件识别失败',
+                    title: '内部服务错误',
                     icon: 'none',
                     duration: 2000
                   })
                   break;
               }
             })
-          },
-          fail: err => {
-            console.log(err)
-            wx.showToast({
-              title: '文件识别失败',
-              icon: 'none',
-              duration: 2000
-            })
           }
-        })
+        });
       }
     })
   },

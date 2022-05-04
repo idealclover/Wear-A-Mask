@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/combine/combine",
+    "pages/upload/upload",
     "pages/share/share"
   ],
   "window": {
@@ -10,8 +11,5 @@
     "navigationBarTitleText": "我要戴口罩",
     "navigationBarTextStyle": "white"
   },
-  "sitemapLocation": "sitemap.json",
-  "navigateToMiniProgramAppIdList": [
-    "wx2d97a7e54e6094eb"
-  ]
+  "sitemapLocation": "sitemap.json"
 }
