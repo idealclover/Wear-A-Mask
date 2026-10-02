@@ -73,7 +73,7 @@ Page({
   onShareAppMessage: function() {
     let successPic = app.globalData.successPic
       ? app.globalData.successPic
-      : "https://image.idealclover.cn/projects/Wear-A-Mask/avatar.png";
+      : "https://cdn.jsdelivr.net/gh/idealclover/Wear-A-Mask@master/assets/avatar.png";
     return {
       title: "一起来为头像带上口罩吧！",
       imageUrl: successPic,

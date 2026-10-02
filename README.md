@@ -8,11 +8,11 @@
 
 扫码预览
 
-![](https://image.idealclover.cn/projects/Wear-A-Mask/qrcode.jpg)
+![](https://cdn.jsdelivr.net/gh/idealclover/Wear-A-Mask@master/assets/qrcode.jpg)
 
 ## 小程序截图
 
-![](https://image.idealclover.cn/projects/Wear-A-Mask/demo.png)
+![](https://cdn.jsdelivr.net/gh/idealclover/Wear-A-Mask@master/assets/demo.png)
 
 ## 小程序技术实现（摘自 [jasscia/ChristmasHat](https://github.com/jasscia/ChristmasHat)）
 
